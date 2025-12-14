@@ -157,4 +157,3 @@ class ServiceThrowsInConstructor
         throw new \RuntimeException('Constructor failed intentionally');
     }
 }
-

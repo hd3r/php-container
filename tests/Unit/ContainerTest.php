@@ -413,7 +413,7 @@ class ContainerTest extends TestCase
         // ControllerWithInterface requires ServiceInterface, but no binding exists
 
         $this->expectException(ContainerException::class);
-        $this->expectExceptionMessage("Cannot resolve dependency");
+        $this->expectExceptionMessage('Cannot resolve dependency');
 
         $container->get(Fixtures\ControllerWithInterface::class);
     }

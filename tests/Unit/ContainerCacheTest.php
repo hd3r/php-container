@@ -290,7 +290,7 @@ class ContainerCacheTest extends TestCase
 
     public function testSaveThrowsWhenDirectoryNotCreatable(): void
     {
-        $root = vfsStream::setup('cache', 0444); // Read-only root
+        $root = vfsStream::setup('cache', 0o444); // Read-only root
         $cacheFile = vfsStream::url('cache/subdir/container.php');
 
         $cache = new ContainerCache($cacheFile, $this->signatureKey);
@@ -303,9 +303,9 @@ class ContainerCacheTest extends TestCase
 
     public function testSaveThrowsWhenFileNotWritable(): void
     {
-        $root = vfsStream::setup('cache', 0755);
+        $root = vfsStream::setup('cache', 0o755);
         // Create directory but make it read-only after
-        $dir = vfsStream::newDirectory('subdir', 0444)->at($root);
+        $dir = vfsStream::newDirectory('subdir', 0o444)->at($root);
         $cacheFile = vfsStream::url('cache/subdir/container.php');
 
         $cache = new ContainerCache($cacheFile, $this->signatureKey);
